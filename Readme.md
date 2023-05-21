@@ -807,3 +807,81 @@ It's important to be aware of hoisting when writing JavaScript code, as it can l
 Each and every let and const variable get there temporal dead zone
 
 ![Untitled](JavaScript%20f429f6da566249eea324f9de476973df/Untitled%207.png)
+
+
+
+# The THIS keyword
+
+![Untitled](JavaScript%20f429f6da566249eea324f9de476973df/Untitled%208.png)
+
+```jsx
+
+'use strict';
+//console.log(this); //will give window object
+//var firstName = 'Ravsi';  //will be added to the window object
+const firstName = 'raaa'; //will not be added to the window object
+const ob = {
+  firstName: 'Ravi',
+  lastName: 'yadav',
+  year: 1992,
+  calcAge: function () {
+    console.log(2037 - this.year);
+    // console.log(this);
+
+    //sol1
+    // const self = this;  //self is a temporary variable which will store the value of this keyword or that keyword
+    // const isMillenial = function () {
+    //   console.log(self); //undefined
+    //   console.log(self.year >= 1981 && self.year <= 1996); //
+
+    // }
+    //sol2
+    const isMillenial = () => {
+      console.log(this); //this will work as the arrow function will not have the this keyword and will take the this keyword from the parent scope
+      console.log(this.year >= 1981 && this.year <= 1996); //
+
+    }
+    isMillenial(); //inside a regular function call the this keyword will be undefined
+
+   //will give undefined as the this keyword will give the global scope
+
+  // greet: () => {
+  //   console.log(`hey ${this.firstName}`);
+  //   console.log(this); // will give window object
+  },
+  greet: function () {
+    console.log(`hey ${this.firstName}`);
+    console.log(this); //now this will give the object itself as the this keyword
+  }
+  //WILL GIVE UNDEFINED AS THE THIS KEYWORD WILL GIVE THE GLOBAL SCOPE AS THE firstName is not in the global scope
+};
+
+ob.calcAge();
+ob.calcAge();
+//output: 46
+//N49
+//Object { firstName: "Ravi", lastName: "yadav", calcAge: calcAge(), greet: greet()
+
+//ob.greet(); //output: hey undefined for const
+// hey RAvsi for var
+
+//here arrow function will give the window object as the this keyword and will not give the object itself
+```
+
+## Argument keyword
+
+```jsx
+//arguments keyword
+const addExpr = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+// console.log(addExpr(2, 5));
+console.log(addExpr(3, 7, 3, 4, 5)); //will give 10 as the arguments keyword will take all the arguments and will not give an error
+
+var addArrow = (a, b) => {
+  console.log(arguments); //aroow functions do not have the arguments keyword
+  return a + b;
+}
+addArrow(1, 2, 4, 5, 6); //will give error
+```
