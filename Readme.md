@@ -971,4 +971,131 @@ console.log(i, j,k); // 2 5 6
 ```
 
 If you passed an extra variable  then it’s value will be undefined
+	
+	
+	
+# Destructuring Objects
+
+## Destructuring Objects
+
+Destructuring objects is similar to destructuring arrays, but instead of using square brackets `[]`, we use curly braces `{}`. To destructure an object, we specify the names of the properties we want to extract inside the curly braces. For example:
+
+```
+const myObj = {a: 1, b: 2, c: 3};
+const {a, b, c} = myObj;
+
+console.log(a); // Output: 1
+console.log(b); // Output: 2
+console.log(c); // Output: 3
+
+```
+
+In the above example, we have an object `myObj` with three properties. We use destructuring to assign each property to a separate variable `a`, `b`, and `c`.
+
+If you try to give different varibale then if will give undefined 
+
+For e.g.
+
+```jsx
+const myObj = {a: 1, b: 2, c: 3};
+const {x, b, c} = myObj;
+
+console.log(x); // Output: Undefined
+console.log(b); // Output: 2
+console.log(c); // Output: 3
+```
+
+To fix this use the following syntax
+
+```jsx
+const myObj = {a: 1, b: 2, c: 3};
+const {a:x, b:y, c:z} = myObj;
+
+console.log(x); // Output: 1
+console.log(y); // Output: 2
+console.log(z); // Output: 3
+```
+
+## Default Values
+
+Like with arrays, we can also use destructuring to assign default values to variables in case the object does not have a property with the specified name. For example:
+
+```jsx
+const myObj = {a: 1};
+const {a, b = 2, c = 3} = myObj;
+
+console.log(a); // Output: 1
+console.log(b); // Output: 2
+console.log(c); // Output: 3
+
+```
+
+In the above example, we have an object `myObj` with only one property. We use destructuring to assign the value of the first property to `a`, and assign default values of `2` and `3` to `b` and `c` respectively.
+
+## Nested
+
+We can also destructure nested objects by specifying the names of the nested properties inside curly braces. For example:
+
+```jsx
+const myObj = {a: 1, b: {c: 2, d: 3}};
+const {a, b: {c, d}} = myObj;
+
+console.log(a); // Output: 1
+console.log(c); // Output: 2
+console.log(d); // Output: 3
+
+```
+
+In the above example, we have an object `myObj` with two properties, one of which is a nested object. We use destructuring to assign the value of the first property to `a`, and the values of the nested properties to `c` and `d`.
+
+## Mutating Variables
+
+If we used `{a, b} = obj;` while `a` and `b` are already defined then it will give the following error `Uncaught SyntaxError: Unexpected token '='` , It’s because JS thinks it’s a code block.
+
+ 
+
+```jsx
+//Mutating variables
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+
+// {a, b} = obj; // Uncaught SyntaxError: Unexpected token '=' // JS thinks it's a code block because of the curly braces
+
+({ a, b } = obj);
+console.log(a, b); // 23 7
+
+```
+
+## Destructuring inside a Function
+
+You can destructure an object inside a function's parameter list like this:
+
+```jsx
+const myFunc = ({a, b}) => {
+  console.log(a); // Output: 1
+  console.log(b); // Output: 2
+};
+
+const myObj = {a: 1, b: 2};
+myFunc(myObj);
+
+```
+
+In the above example, `myFunc` takes an object as its parameter. We can destructure the properties `a` and `b` from the object inside the parameter list itself. Then, when we call `myFunc` with `myObj`, the destructured properties will be passed as arguments to the function.
+
+You can also assign default values for properties that do not exist in the object, like this:
+
+```jsx
+const myFunc = ({a, b = 2}) => {
+  console.log(a); // Output: 1
+  console.log(b); // Output: 2 (default value)
+};
+
+const myObj = {a: 1};
+myFunc(myObj);
+
+```
+
+In the above example, we assign a default value of `2` to the property `b` in case it does not exist in the object passed to `myFunc`.
 
