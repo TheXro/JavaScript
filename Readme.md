@@ -980,7 +980,7 @@ If you passed an extra variable  then it’s value will be undefined
 
 Destructuring objects is similar to destructuring arrays, but instead of using square brackets `[]`, we use curly braces `{}`. To destructure an object, we specify the names of the properties we want to extract inside the curly braces. For example:
 
-```
+```jsx
 const myObj = {a: 1, b: 2, c: 3};
 const {a, b, c} = myObj;
 
