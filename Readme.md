@@ -1098,4 +1098,159 @@ myFunc(myObj);
 ```
 
 In the above example, we assign a default value of `2` to the property `b` in case it does not exist in the object passed to `myFunc`.
+	
+	
+## Spread Operator
+
+The spread operator is a new feature in JavaScript that allows you to spread the contents of an array or object into a new array or object. The spread operator is denoted by three dots `...`.
+
+In simple terms its like taking all the elements of array or object and placing them manually in a new array something like the below code
+
+```jsx
+const arr = [1,2,3];
+cosnt badArr = [2,3,arr[0],arr[1],arr[2]]
+//we cant use
+const badArr = [2,3, arr];
+//then it will have the full array arr as its 2nd index
+```
+
+Whenever we need individaully we can use spread operator
+
+Spread works similarly to destructuring big difference betweens them is that spread takes all the elements from the arrya and doesn’t create new variables so we can only use it in the places where we need comma separated values or individual values
+
+### Spread in Arrays
+
+In arrays, the spread operator can be used to create a new array containing the contents of another array, or to combine two or more arrays into a single array. For example:
+
+```jsx
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+const arr3 = [...arr1, ...arr2];
+
+console.log(arr3); // Output: [1, 2, 3, 4, 5, 6]
+
+//real world example 
+
+function orderPasta(ing1, ing2, ing3) {
+  console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
+}
+
+const ingredients = [prompt('Ingredient 1: '), prompt('Ingredient 2: '), prompt('Ingredient 3: ')];
+orderPasta(...ingredients);
+
+```
+
+In the above example, we use the spread operator to create a new array `arr3` containing the contents of `arr1` and `arr2`.
+
+### Spread in Objects
+
+In objects, the spread operator can be used to create a new object containing the properties of another object, or to combine two or more objects into a single object. For example:
+
+```jsx
+const obj1 = {a: 1, b: 2};
+const obj2 = {c: 3, d: 4};
+
+const obj3 = {...obj1, ...obj2};
+
+console.log(obj3); // Output: {a: 1, b: 2, c: 3, d: 4}
+
+const newRest = {...rest, foundedIn:1990, foundedBy:Hmm};
+
+```
+
+In the above example, we use the spread operator to create a new object `obj3` containing the properties of `obj1` and `obj2`.
+
+You can also make copies of objects using spread
+
+```jsx
+// // spread operator can be used to create shallow copies of arrays and objects.
+// const arr = [1, 2, 3];
+// const arrCopy = [...arr];
+// console.log(arrCopy); // [1, 2, 3]
+// 
+// const arrCopy2 = [...arr, 4];
+// console.log(arrCopy2); // [1, 2, 3, 4]
+//
+// const obj = { a: 1, b: 2, c: 3 };
+// const objCopy = { ...obj };
+// console.log(objCopy); // { a: 1, b: 2, c: 3 }
+// 
+// const objCopy2 = { ...obj, d: 4 };
+// console.log(objCopy2); // { a: 1, b: 2, c: 3, d: 4 }
+// 
+// // spread operator can be used to merge arrays and objects.
+// const arr = [1, 2, 3];
+// const arr2 = [4, 5, 6];
+// const mergedArr = [...arr, ...arr2];
+// console.log(mergedArr); // [1, 2, 3, 4, 5, 6]
+// 
+// const obj = { a: 1, b: 2, c: 3 };
+// const obj2 = { d: 4, e: 5, f: 6 };
+// const mergedObj = { ...obj, ...obj2 };
+// console.log(mergedObj); // { a: 1, b: 2, c: 3, d: 4, e: 5, f: 6 }
+// 
+// // spread operator can be used to clone arrays and objects.
+// const arr = [1, 2, 3];
+// const clonedArr = [...arr];
+
+// console.log(clonedArr); // [1, 2, 3]
+// console.log(arr === clonedArr); // false
+// 
+// const obj = { a: 1, b: 2, c: 3 };
+// const clonedObj = { ...obj };
+// console.log(clonedObj); // { a: 1, b: 2, c: 3 }
+// console.log(obj === clonedObj); // false
+```
+
+## Rest Parameter
+
+Its opposite to spread operator as spread is used to unpack an array and rest is used to pack and array.
+
+```jsx
+// // Rest pattern and parameters
+//spread, because on RIGHT side of =
+const arr = [1, 2, ...[3, 4]];
+console.log(arr); // [1, 2, 3, 4]
+
+//rest, because on LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others); // 1 2 [3, 4, 5] // rest pattern is used to collect all the remaining elements into an array variable.
+
+//// using rest and spread together 
+const [pizza, , risotto, ...otherFood] = [ 
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood); // Pizza Risotto ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"]
+
+//Rest must be the last element otherwise how will the program know where to stop
+
+//Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays); // { thu: {…}, fri: {…} }
+
+```
+
+### For Functions
+
+It also allows you to pass an indefinite number of arguments to a function as an array. The rest parameter is denoted by three dots `...` followed by the name of the array that will contain the arguments.
+
+For example:
+
+```jsx
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+};
+add(1, 2); // 3
+add(5, 3, 7, 2); // 16
+add(8, 2, 5, 3, 2, 1, 4); // 20
+
+const x = [23, 5, 7];
+add(...x); // 35
+```
+
+In the above example, we define a function `add` that takes an indefinite number of arguments using the rest parameter `...numbers`.  
 
