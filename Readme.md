@@ -885,3 +885,90 @@ var addArrow = (a, b) => {
 }
 addArrow(1, 2, 4, 5, 6); //will give error
 ```
+	
+	
+# Modern Operators and Data Structures
+
+# Destructuring Arrays
+
+This section covers the use of destructuring arrays in JavaScript. Destructuring arrays is a way to unpack the values of an array into separate variables. It provides a concise and readable way to extract values from an array.
+
+To destructure an array, simply wrap the variables you want to assign the values to in square brackets `[]`, and assign them to the array you want to destructure. For example:
+
+```jsx
+const myArray = [1, 2, 3];
+const [a, b, c] = myArray;
+
+console.log(a); // Output: 1
+console.log(b); // Output: 2
+console.log(c); // Output: 3
+
+```
+
+In the above example, we have an array `myArray` with three values. We then use destructuring to assign each value to a separate variable `a`, `b`, and `c`.
+
+You can also use destructuring to assign default values to variables in case the array does not have enough values to assign to all the variables. For example:
+
+```jsx
+const myArray = [1];
+const [a, b = 2, c = 3] = myArray;
+
+console.log(a); // Output: 1
+console.log(b); // Output: 2
+console.log(c); // Output: 3
+
+```
+
+In the above example, we have an array `myArray` with only one value. We use destructuring to assign the first value to `a`, and assign default values of `2` and `3` to `b` and `c` respectively.
+
+Destructuring arrays can be particularly useful when working with functions that return arrays. For example:
+
+```jsx
+function returnArray() {
+  return [1, 2, 3];
+}
+
+const [a, b, c] = returnArray();
+
+console.log(a); // Output: 1
+console.log(b); // Output: 2
+console.log(c); // Output: 3
+
+```
+
+In the above example, we have a function `returnArray()` that returns an array with three values. We use destructuring to assign each value to a separate variable `a`, `b`, and `c`.
+
+You can also skip the values in a array by just leaving that place blank
+
+```jsx
+categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'];
+
+//to skip elements
+let [main,/* this is left blank*/, secondary] = categories;
+console.log(main, secondary); // Italian Vegetarian
+```
+
+To swap the elements using destructuring → Start by creating the inverted array of the variables and assign it to the original array of variables
+
+```jsx
+[main, secondary] = [secondary, main];
+console.log(main, secondary); // Vegetarian Italian
+
+//receive 2 return values from a function
+const [starter, mainCourse] = restaurant.order(2, 0);
+console.log(starter, mainCourse);
+
+```
+
+### Nested Destructuring
+
+```jsx
+//Just destructure inside the destructuring
+//nested destructuring
+const nested = [2, 4, [5, 6]];
+const [i, , [j, k]] = nested;
+console.log(i, j,k); // 2 5 6
+```
+
+If you passed an extra variable  then it’s value will be undefined
+
