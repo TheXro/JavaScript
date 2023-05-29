@@ -1254,3 +1254,48 @@ add(...x); // 35
 
 In the above example, we define a function `add` that takes an indefinite number of arguments using the rest parameter `...numbers`.  
 
+				     
+				     
+## The forof Loop: the smart way to loop over an array
+It is used to loop over all the values of an iterable object: arrays, strings, maps, sets
+It is the modern replacement for the for loop and forEach() method			     
+// the smart way to loop over an array
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+
+//the forof loop can be used to loop over the keys of an object 
+// for (const item of menu) console.log(item);
+// console.log(item); // ReferenceError: item is not defined // item is scoped to the for of loop
+
+//here item is the current element in the loop.
+for (const item of menu.entries()) {
+  console.log(item);
+}
+
+//Output: 
+// Array [ 0, "Pizza" ]
+// Array [ 1, "Pasta" ]
+// Array [ 2, "Risotto" ]
+// Array [ 3, "Focaccia" ]
+// Array [ 4, "Bruschetta" ]
+// Array [ 5, "GarlicBread" ]
+// Array [ 6, "Caprese Salad" ]
+
+//as its Output is array we can use this for destructuring 
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`); 
+}//
+1: Pizza 
+2: Pasta 
+3: Risotto 
+4: Focaccia 
+5: Bruschetta 
+6: GarlicBread 
+7: Caprese Salad
+
+// console.log([...menu.entries()]);
+
+const fruits = ['🍎','🍌','🍊'];
+
+for (const fruit of fruits) {
+console.log(fruit);
+}
