@@ -1259,7 +1259,9 @@ In the above example, we define a function `add` that takes an indefinite number
 ## The forof Loop: the smart way to loop over an array
 It is used to loop over all the values of an iterable object: arrays, strings, maps, sets
 It is the modern replacement for the for loop and forEach() method			     
-// the smart way to loop over an array
+
+```jsx				     
+				     // the smart way to loop over an array
 const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
 
 //the forof loop can be used to loop over the keys of an object 
@@ -1299,3 +1301,4 @@ const fruits = ['🍎','🍌','🍊'];
 for (const fruit of fruits) {
 console.log(fruit);
 }
+```
