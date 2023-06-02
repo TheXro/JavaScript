@@ -1302,3 +1302,44 @@ for (const fruit of fruits) {
 console.log(fruit);
 }
 ```
+				     
+				     
+## Maps
+Maps are another datastructure that are used to store `key ⇒ value` pairs . This makes it so good as key can be anything like arrays or even objects.
+```jsx
+//syntax
+const rest = new Map();
+rest.set('name','Classic Italiano');
+rest.set('1','Firenxe, Italy');
+
+//also you itrate set
+rest
+	.set('categories 😋',['🥔' , '🥙' , '🍲' ])
+	.set('0pen', 11)
+	.set('close',23)
+	.set(true, 'We are Open :D');
+
+
+//you can also set the element as the key
+rest.set(document.querySelector('h1'), 'headig');
+				     ```
+​
+Maps Methods
+.get() Method
+It gives the value of the key passed
+JavaScript
+Copy
+Caption
+console.log(rest.get('name');
+//gives the name value.
+​
+.has()
+to check if the map has that key or not
+.delete()
+to delete any key value pair
+.clear()
+to remove all the data from the map
+.size()
+gives the size 
+		     
+				     
