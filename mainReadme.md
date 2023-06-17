@@ -10,7 +10,7 @@
 
 ## 📚 Table of Contents
 
-- [📝 Basics](Basics.md)
+- [📝 Basics](basics.md)
 - [🔧 Functions](functions.md)
 - [⚡️ Promises](promises.md)
 - [🔄 Loops](loops.md)
