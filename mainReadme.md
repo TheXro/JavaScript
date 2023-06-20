@@ -12,6 +12,7 @@
 
 - [📝 Basics](basics.md)
 - [🔧 Functions](functions.md)
+- [   Arrays](arrays.md)
 - [⚡️ Promises](promises.md)
 - [🔄 Loops](loops.md)
 - [🔍 Search](search.md)
