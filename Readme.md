@@ -1371,4 +1371,15 @@ console.log(airlines.slice(4)); // Air Portugal
 //this doesn't mutate the string. and returns a new string.
 console.log(airlines.slice(4, 7)); // Air 
 // 4 is the starting index and 7 is the end index. but the end index is not included.
+
+
+//most of the time we don't know about the string therefore we use indexOf to get the index of the string.
+
+console.log(airlines.slice(0, airlines.indexOf(' '))); // TAP 
+console.log(airlines.slice(airlines.lastIndexOf(' ') + 1)); // Portugal
+// +1 is used to remove the space. 
+
+console.log(airlines.slice(-1)); // al
+console.log(airlines.slice(1, -1)); // AP Air Portuga
+// these are the negative indexes. -1 is the last element of the string. 
 ```
