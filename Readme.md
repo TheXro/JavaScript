@@ -1322,7 +1322,7 @@ rest
 
 //you can also set the element as the key
 rest.set(document.querySelector('h1'), 'headig');
-				     ```
+```
 ​
 Maps Methods
 .get() Method
@@ -1343,3 +1343,32 @@ to remove all the data from the map
 gives the size 
 		     
 				     
+# Strings
+    We can use index and length in Strings like arrays
+```jsx
+const airlines = 'TAP Air Portugal';
+const plane = 'A320';
+console.log(plane[0]); // A
+console.log(plane[1]); // 3
+console.log(plane[2]); // 2
+console.log('B737'[0]); // B
+
+console.log(airlines.length); // 16
+console.log('B737'.length); // 4
+```
+### indexOf
+ ```jsx
+console.log(airlines.indexOf('r')); // 6
+console.log(airlines.lastIndexOf('r')); // 10
+console.log(airlines.indexOf('Portugal')); // 8
+console.log(airlines.indexOf('portugal')); // -1
+//why -1? because indexOf is case sensitive.
+
+```
+### Slice Method
+```jsx
+console.log(airlines.slice(4)); // Air Portugal
+//this doesn't mutate the string. and returns a new string.
+console.log(airlines.slice(4, 7)); // Air 
+// 4 is the starting index and 7 is the end index. but the end index is not included.
+```
