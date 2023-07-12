@@ -1383,3 +1383,40 @@ console.log(airlines.slice(-1)); // al
 console.log(airlines.slice(1, -1)); // AP Air Portuga
 // these are the negative indexes. -1 is the last element of the string. 
 ```
+
+### USing methods on strings
+```jsx
+/ how can we use methods on strings?
+console.log(new String('jonas')); // String {"jonas"}
+console.log(typeof new String('jonas')); // object
+
+//so we can use methods on strings because of the string object.
+// javascript bacially converts the string to string object and then we can use the methods on it. after using the methods it converts back to string.
+
+
+console.log(airlines.toLowerCase()); // tap air portugal
+console.log(airlines.toUpperCase()); // TAP AIR PORTUGAL
+
+//check emails 
+const email = 'hellow@protonmail.xo';
+const loginEmail = '   Hellow@protonmail.xo';
+const lowerEmail = loginEmail.toLowerCase(); 
+const trimmedEmail = lowerEmail.trim(); // trim() removes the spaces.
+
+const normalizeEmail = loginEmail.toLowerCase().trim(); 
+console.log(normalizeEmail); // hellow@protonmail.xo
+// you can then check if email == loginEmail 
+
+//replacing
+const priceGB = '288,97£';
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+//this replaces the first occurance of £ with $ and then replaces the first occurance of , with .
+console.log(priceUS); // 288.97$
+
+const announcement = 'All passengers come to boarding door 23. Boarding door 23!';
+
+console.log(announcement.replace('door', 'gate')); // All passengers come to boarding gate 23. Boarding door 23!
+// this only replaces the first occurance of door with gate.
+console.log(announcement.replaceAll('door', 'gate')); // All passengers come to boarding gate 23. Boarding gate 23!
+// this replaces all the occurance of door with gate.
+```
